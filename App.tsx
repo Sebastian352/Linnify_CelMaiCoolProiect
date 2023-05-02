@@ -27,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import {AuthNavigator} from './src/modules/auth/navigation/navigators/auth-nav';
 import {AppNavigator} from './src/modules/celmaicoolproiect/navigation/navigators/app-nav';
+import {MMKV} from 'react-native-mmkv';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -57,6 +58,8 @@ function Section({children, title}: SectionProps): JSX.Element {
     </View>
   );
 }
+
+export const storage = new MMKV();
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';

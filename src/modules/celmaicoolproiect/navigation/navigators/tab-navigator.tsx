@@ -48,7 +48,6 @@ const tabBarLabel = ({focused, color, children}) => {
   } else {
     size = 15;
   }
-  console.log(focused);
   return (
     <Text style={{fontSize: size, color: color, fontWeight: 'bold'}}>
       {children}
