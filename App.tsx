@@ -71,7 +71,7 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
-        {false ? <AuthNavigator /> : <AppNavigator />}
+        <AppNavigator/>
       </NavigationContainer>
     </SafeAreaView>
   );

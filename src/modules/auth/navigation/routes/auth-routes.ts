@@ -1,5 +1,5 @@
 export enum AuthRoutes{
-    Auth = 'Auth',
+    Auth = 'AuthNav',
 }
 
 export type AuthRouteProps = {

@@ -6,16 +6,23 @@ import {
   StyleSheet,
   Pressable,
 } from 'react-native';
+import LoginComponent from '../components/LoginComponent';
+import useAuthStore from '../store/useAuthStore';
+
+
+
 
 const LoginScreen = () => {
+  const users = useAuthStore().users;
+  const setCurrentUser = useAuthStore().setCurrentUser;
+  const onLogin = (email:string,password:string) => {
+    console.log({email, password, users})
+    setCurrentUser(users.find((item)=> (item.email === email && item.password === password)))
+  }
   return (
-    <View style={styles.container}>
-      <TextInput style={styles.textInput} />
-      <View style={styles.spacerStyle} />
-      <TextInput style={styles.textInput} />
-      <View style={styles.spacerStyle} />
-      <Pressable style={styles.buttonStyle} />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <LoginComponent onPress={onLogin}/>
+    </SafeAreaView>
   );
 };
 
@@ -25,24 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'tomato',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  textInput: {
-    width: '90%',
-    padding: 10,
-    color: 'black',
-    backgroundColor: 'white',
-    height: 50,
-  },
-  buttonStyle: {
-    width: 100,
-    height: 50,
-    backgroundColor: 'lightgreen',
-    fontWeight: 'bold',
-  },
-  spacerStyle: {
-    width: '100%',
-    height: 32,
-    backgroundColor: 'tomato',
   },
 });
 

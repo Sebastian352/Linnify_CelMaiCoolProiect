@@ -5,9 +5,11 @@ import HomeScreen from '../../screens/homeScreen';
 import FavoriteScreen from '../../screens/favoriteScreen';
 import AccountScreen from '../../screens/accountScreen';
 import {HomeIcon, PersonIcon, UmbrellaIcon} from '../../../../assets/icons';
-import {StyleSheet, Text} from 'react-native';
+import {Pressable, StyleSheet, Text} from 'react-native';
 import {TabBar} from 'react-native-tab-view';
 import {CardStyleInterpolators} from '@react-navigation/stack';
+import EditScreen from '../../screens/editScreen';
+import { AppRoutes } from '../routes/app-routes';
 
 const Tab = createBottomTabNavigator<TabRouteProps>();
 
@@ -27,7 +29,7 @@ export const BottomTabs = () => {
       <Tab.Screen
         name={TabRoutes.Account}
         component={AccountScreen}
-        options={{tabBarIcon: accountIcon}}
+        options={{tabBarIcon: accountIcon,headerRight:editButton,headerShown:true}}
       />
     </Tab.Navigator>
   );
@@ -55,6 +57,16 @@ const tabBarLabel = ({focused, color, children}) => {
   );
 };
 
+
+const editButton = () =>{
+const navigation = useNavigation();
+  return(
+    <Pressable style={styles.editButton}  onPress={()=> navigation.navigate(AppRoutes.Edit)}>
+      <Text style={styles.editTextStyle}>Edit</Text>
+    </Pressable>
+  )
+}
+
 const homeIcon = () => {
   return <HomeIcon width={50} height={50} />;
 };
@@ -76,4 +88,11 @@ const styles = StyleSheet.create({
     height: 90,
     position: 'absolute',
   },
+  editButton:{
+    paddingRight:16,
+  },
+  editTextStyle:{
+    fontWeight:'bold',
+    fontSize:20,
+  }
 });
