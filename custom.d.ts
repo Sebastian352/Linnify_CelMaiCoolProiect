@@ -1,4 +1,8 @@
 declare module '*.svg' {
- const content: any;
- export default content;
-}
+    import {SvgProps} from 'react-native-svg';
+    const content: React.StatelessComponent<SvgProps>;
+    export default content;
+  }
+
+
+   

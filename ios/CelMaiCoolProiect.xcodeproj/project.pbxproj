@@ -14,6 +14,14 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-CelMaiCoolProiect-CelMaiCoolProiectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-CelMaiCoolProiect-CelMaiCoolProiectTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		DDD64C935BEF486C8C009CED /* MriyaGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A05BBEB3BF4A405AA193F87E /* MriyaGrotesk-Bold.ttf */; };
+		656922842DD14CE79D17ABCD /* MriyaGrotesk-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A12DC0D1E4F81B71B2228 /* MriyaGrotesk-BoldItalic.ttf */; };
+		967312E8670D4DA3B3E06607 /* MriyaGrotesk-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3395BEA0B554664A222A239 /* MriyaGrotesk-Heavy.ttf */; };
+		E92B1DCAC7E1423F92C6F9EF /* MriyaGrotesk-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E10CDD894F8446AD915B51BC /* MriyaGrotesk-HeavyItalic.ttf */; };
+		4F0D0E4D175E49E69B52ED6F /* MriyaGrotesk-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8076EC8060E24F5186DC973C /* MriyaGrotesk-Italic.ttf */; };
+		C6BE8F8EA5ED4397A2ED0DC0 /* MriyaGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C58BE4D116454E619C8F7E53 /* MriyaGrotesk-Light.ttf */; };
+		41CFBFD187ED4D6BBE3B6403 /* MriyaGrotesk-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEB6FE0B6EA044F39DB64BC2 /* MriyaGrotesk-LightItalic.ttf */; };
+		06C308D0B8CD4C7585B428CE /* MriyaGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCFD0943CE414BDAB3849033 /* MriyaGrotesk-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CelMaiCoolProiect/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-CelMaiCoolProiect-CelMaiCoolProiectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CelMaiCoolProiect-CelMaiCoolProiectTests.release.xcconfig"; path = "Target Support Files/Pods-CelMaiCoolProiect-CelMaiCoolProiectTests/Pods-CelMaiCoolProiect-CelMaiCoolProiectTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		A05BBEB3BF4A405AA193F87E /* MriyaGrotesk-Bold.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-Bold.ttf"; path = "../src/fonts/MriyaGrotesk-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3E8A12DC0D1E4F81B71B2228 /* MriyaGrotesk-BoldItalic.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-BoldItalic.ttf"; path = "../src/fonts/MriyaGrotesk-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D3395BEA0B554664A222A239 /* MriyaGrotesk-Heavy.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-Heavy.ttf"; path = "../src/fonts/MriyaGrotesk-Heavy.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E10CDD894F8446AD915B51BC /* MriyaGrotesk-HeavyItalic.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-HeavyItalic.ttf"; path = "../src/fonts/MriyaGrotesk-HeavyItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8076EC8060E24F5186DC973C /* MriyaGrotesk-Italic.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-Italic.ttf"; path = "../src/fonts/MriyaGrotesk-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C58BE4D116454E619C8F7E53 /* MriyaGrotesk-Light.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-Light.ttf"; path = "../src/fonts/MriyaGrotesk-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CEB6FE0B6EA044F39DB64BC2 /* MriyaGrotesk-LightItalic.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-LightItalic.ttf"; path = "../src/fonts/MriyaGrotesk-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BCFD0943CE414BDAB3849033 /* MriyaGrotesk-Regular.ttf */ = {isa = PBXFileReference; name = "MriyaGrotesk-Regular.ttf"; path = "../src/fonts/MriyaGrotesk-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +138,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				94B13005207645F4ADDEC5D0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +164,22 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		94B13005207645F4ADDEC5D0 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A05BBEB3BF4A405AA193F87E /* MriyaGrotesk-Bold.ttf */,
+				3E8A12DC0D1E4F81B71B2228 /* MriyaGrotesk-BoldItalic.ttf */,
+				D3395BEA0B554664A222A239 /* MriyaGrotesk-Heavy.ttf */,
+				E10CDD894F8446AD915B51BC /* MriyaGrotesk-HeavyItalic.ttf */,
+				8076EC8060E24F5186DC973C /* MriyaGrotesk-Italic.ttf */,
+				C58BE4D116454E619C8F7E53 /* MriyaGrotesk-Light.ttf */,
+				CEB6FE0B6EA044F39DB64BC2 /* MriyaGrotesk-LightItalic.ttf */,
+				BCFD0943CE414BDAB3849033 /* MriyaGrotesk-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +277,14 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DDD64C935BEF486C8C009CED /* MriyaGrotesk-Bold.ttf in Resources */,
+				656922842DD14CE79D17ABCD /* MriyaGrotesk-BoldItalic.ttf in Resources */,
+				967312E8670D4DA3B3E06607 /* MriyaGrotesk-Heavy.ttf in Resources */,
+				E92B1DCAC7E1423F92C6F9EF /* MriyaGrotesk-HeavyItalic.ttf in Resources */,
+				4F0D0E4D175E49E69B52ED6F /* MriyaGrotesk-Italic.ttf in Resources */,
+				C6BE8F8EA5ED4397A2ED0DC0 /* MriyaGrotesk-Light.ttf in Resources */,
+				41CFBFD187ED4D6BBE3B6403 /* MriyaGrotesk-LightItalic.ttf in Resources */,
+				06C308D0B8CD4C7585B428CE /* MriyaGrotesk-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

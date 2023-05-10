@@ -40,7 +40,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -55,5 +55,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MriyaGrotesk-Bold.ttf</string>
+		<string>MriyaGrotesk-BoldItalic.ttf</string>
+		<string>MriyaGrotesk-Heavy.ttf</string>
+		<string>MriyaGrotesk-HeavyItalic.ttf</string>
+		<string>MriyaGrotesk-Italic.ttf</string>
+		<string>MriyaGrotesk-Light.ttf</string>
+		<string>MriyaGrotesk-LightItalic.ttf</string>
+		<string>MriyaGrotesk-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

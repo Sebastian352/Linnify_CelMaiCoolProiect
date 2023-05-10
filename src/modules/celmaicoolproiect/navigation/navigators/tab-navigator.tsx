@@ -4,12 +4,20 @@ import {useNavigation} from '@react-navigation/native';
 import HomeScreen from '../../screens/homeScreen';
 import FavoriteScreen from '../../screens/favoriteScreen';
 import AccountScreen from '../../screens/accountScreen';
-import {HomeIcon, PersonIcon, UmbrellaIcon} from '../../../../assets/icons';
+import {
+  BookMarkIcon,
+  HomeIcon,
+  PersonIcon,
+  PlayCircleIcon,
+  ProfileIcon,
+  UmbrellaIcon,
+} from '../../../../assets/icons';
 import {Pressable, StyleSheet, Text} from 'react-native';
 import {TabBar} from 'react-native-tab-view';
 import {CardStyleInterpolators} from '@react-navigation/stack';
 import EditScreen from '../../screens/editScreen';
-import { AppRoutes } from '../routes/app-routes';
+import {AppRoutes} from '../routes/app-routes';
+import {COLORS} from '../../../../constants/themes';
 
 const Tab = createBottomTabNavigator<TabRouteProps>();
 
@@ -29,7 +37,11 @@ export const BottomTabs = () => {
       <Tab.Screen
         name={TabRoutes.Account}
         component={AccountScreen}
-        options={{tabBarIcon: accountIcon,headerRight:editButton,headerShown:true}}
+        options={{
+          tabBarIcon: accountIcon,
+          headerRight: editButton,
+          headerShown: true,
+        }}
       />
     </Tab.Navigator>
   );
@@ -39,60 +51,51 @@ const tabOptions = (focused: boolean, color: string, children: string) => {
   return {
     tabBarStyle: {...styles.bottomTab, paddingBottom: 10},
     headerShown: false,
-    tabBarLabel: tabBarLabel,
+    tabBarShowLabel: false,
   };
 };
 
-const tabBarLabel = ({focused, color, children}) => {
-  let size: number;
-  if (focused) {
-    size = 20;
-  } else {
-    size = 15;
-  }
+const editButton = () => {
+  const navigation = useNavigation();
   return (
-    <Text style={{fontSize: size, color: color, fontWeight: 'bold'}}>
-      {children}
-    </Text>
+    <Pressable
+      style={styles.editButton}
+      onPress={() => navigation.navigate(AppRoutes.Edit)}>
+      <Text style={styles.editTextStyle}>Edit</Text>
+    </Pressable>
   );
 };
 
-
-const editButton = () =>{
-const navigation = useNavigation();
-  return(
-    <Pressable style={styles.editButton}  onPress={()=> navigation.navigate(AppRoutes.Edit)}>
-      <Text style={styles.editTextStyle}>Edit</Text>
-    </Pressable>
-  )
-}
-
 const homeIcon = () => {
-  return <HomeIcon width={50} height={50} />;
+  return <PlayCircleIcon width={32} height={32} fill="#FAFAFC" />;
 };
 
 const favoriteIcon = () => {
-  return <UmbrellaIcon width={50} height={50} />;
+  return <BookMarkIcon width={40} height={40} fill="#FAFAFC" />;
 };
 
 const accountIcon = () => {
-  return <PersonIcon width={50} height={50} />;
+  return (
+    <ProfileIcon width={32} height={32} fill="#FAFAFC" style={{color: 'red'}} />
+  );
 };
 
 const styles = StyleSheet.create({
   bottomTab: {
-    bottom: 25,
-    left: 20,
-    right: 20,
-    borderRadius: 15,
-    height: 90,
+    bottom: 4,
+    left: 4,
+    right: 4,
+    borderRadius: 32,
+    height: 92,
     position: 'absolute',
+    backgroundColor: COLORS.gray,
   },
-  editButton:{
-    paddingRight:16,
+  editButton: {
+    paddingRight: 16,
   },
-  editTextStyle:{
-    fontWeight:'bold',
-    fontSize:20,
-  }
+  editTextStyle: {
+    fontWeight: 'bold',
+    color: 'black',
+    fontSize: 20,
+  },
 });
