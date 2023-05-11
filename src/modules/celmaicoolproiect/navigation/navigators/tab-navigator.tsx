@@ -66,18 +66,34 @@ const editButton = () => {
   );
 };
 
-const homeIcon = () => {
-  return <PlayCircleIcon width={32} height={32} fill="#FAFAFC" />;
+const homeIcon = ({focused}) => {
+  let color = '';
+  if (focused) {
+    color = COLORS.secondary;
+  } else {
+    color = COLORS.iconWhite;
+  }
+  return <PlayCircleIcon width={40} height={40} fill={color} />;
 };
 
-const favoriteIcon = () => {
-  return <BookMarkIcon width={40} height={40} fill="#FAFAFC" />;
+const favoriteIcon = ({focused}) => {
+  let color = '';
+  if (focused) {
+    color = COLORS.secondary;
+  } else {
+    color = COLORS.iconWhite;
+  }
+  return <BookMarkIcon width={48} height={48} fill={color} />;
 };
 
-const accountIcon = () => {
-  return (
-    <ProfileIcon width={32} height={32} fill="#FAFAFC" style={{color: 'red'}} />
-  );
+const accountIcon = ({focused}) => {
+  let color = '';
+  if (focused) {
+    color = COLORS.secondary;
+  } else {
+    color = COLORS.iconWhite;
+  }
+  return <ProfileIcon width={40} height={40} fill={color} />;
 };
 
 const styles = StyleSheet.create({

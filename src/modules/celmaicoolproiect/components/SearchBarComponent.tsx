@@ -1,12 +1,29 @@
 import {StyleSheet, TextInput, View} from 'react-native';
 import {COLORS} from '../../../constants/themes';
 import {SearchIcon} from '../../../assets/icons';
+import {useState} from 'react';
 
-const SearchBarcomponent = () => {
+interface Props {
+  changeQuery: (receivedData: string) => void;
+}
+
+const SearchBarcomponent = (props: Props) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleChange = (text: string) => {
+    setSearchQuery(text);
+    props.changeQuery(text);
+  };
+
   return (
     <View style={styles.container}>
       <SearchIcon width={16} height={16} />
-      <TextInput style={styles.textInput} placeholder="search movie" />
+      <TextInput
+        style={styles.textInput}
+        placeholder="search movie"
+        value={searchQuery}
+        onChangeText={handleChange}
+      />
     </View>
   );
 };

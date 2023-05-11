@@ -16,6 +16,7 @@ import FilterBarComponent from '../components/FilterBarComponent';
 import CardComponent from '../components/CardComponent';
 import {getMovies} from '../../../services/movie.service';
 import FlatListComponent from '../components/FlatListComponent';
+import {searchHook} from '../hooks/use-search-hook';
 
 /*
   https://6453db49e9ac46cedf31a3e5.mockapi.io/movies?
@@ -27,9 +28,25 @@ const HomeScreen = () => {
   const setVisible = () => {
     setModalVisible(!isModalVisible);
   };
+
+  const [oldData, setOldData] = useState([]);
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
+
+  const theSearchQuery = (data: string) => {
+    setSearchQuery(data);
+  };
+
+  const changePage = (refresh: boolean) => {
+    if (refresh) {
+      setPage(0);
+    } else {
+      setPage(page + 1);
+    }
+  };
+
+  const data = searchHook(movies, searchQuery, 'genre');
 
   useEffect(() => {
     getMovies(10, page).then((data: []) => {
@@ -37,12 +54,19 @@ const HomeScreen = () => {
     });
   }, [page]);
 
+  useEffect(() => {
+    setMovies(data);
+    if (searchQuery.length < 1) {
+      setPage(0);
+    }
+  }, [data]);
+
   return (
     <SafeAreaView style={styles.container}>
-      <SearchBarcomponent />
+      <SearchBarcomponent changeQuery={theSearchQuery} />
       <FilterBarComponent setVisible={setVisible} />
       <View style={styles.separator}></View>
-      <FlatListComponent movies={movies} />
+      <FlatListComponent movies={movies} changePage={changePage} />
       <Modal
         isVisible={isModalVisible}
         onBackdropPress={setVisible}

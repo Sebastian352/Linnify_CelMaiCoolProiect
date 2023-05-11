@@ -16,6 +16,7 @@ const FilterComponent = (props: Props) => {
     const result = active ? styles.textStyle : styles.unfavoriteTextStyle;
     return result;
   };
+
   return (
     <Pressable onPress={props.onPress} style={checkActive(props.active)}>
       <Text style={checkActiveText(props.active)}>{props.text}</Text>
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   unfavoriteTextStyle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: COLORS.lightWhite,
+    color: COLORS.iconWhite,
   },
   favoriteButton: {
     width: 100,
