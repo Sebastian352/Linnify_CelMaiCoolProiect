@@ -12,6 +12,9 @@ import {
 import CardComponent from './CardComponent';
 import {CardProps} from '../../types/CardProps';
 import {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {AppRoutes} from '../navigation/routes/app-routes';
+import {COLORS} from '../../../constants/themes';
 
 const renderCardComponent = ({item}: ListRenderItemInfo<CardProps>) => {
   return <CardComponent prop={item} />;
@@ -35,16 +38,13 @@ const FlatListComponent = (props: FlatListProps) => {
   const oR = () => {
     if (!loading && !loadingMore) props.changePage(true);
   };
-  {
-    //   useEffect(() => {
-    //     if (!endOfPage) {
-    //       handleFetch();
-    //     }
-    //     setLoading(false);
-    //     setLoadingMore(false);
-    //     setRefresing(false);
-    //   }, []);
-  }
+
+  useEffect(() => {
+    setLoading(false);
+    setLoadingMore(false);
+    setRefresing(false);
+  }, []);
+
   return (
     <FlatList
       data={props.movies}
@@ -58,8 +58,17 @@ const FlatListComponent = (props: FlatListProps) => {
       columnWrapperStyle={{
         justifyContent: 'space-evenly',
       }}
+      showsVerticalScrollIndicator={false}
       ListEmptyComponent={() => <ActivityIndicator size={'large'} />}
       ItemSeparatorComponent={separatorComponent}
+      ListFooterComponent={() => (
+        <View
+          style={{
+            width: '100%',
+            height: 100,
+            backgroundColor: COLORS.primary,
+          }}></View>
+      )}
     />
   );
 };

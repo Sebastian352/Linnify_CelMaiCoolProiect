@@ -6,26 +6,35 @@ import {
   StyleSheet,
   Pressable,
 } from 'react-native';
+import {COLORS} from '../../../constants/themes';
+import FlatListComponent from '../components/FlatListComponent';
+import {useEffect, useState} from 'react';
+import useAuthStore from '../../auth/store/useAuthStore';
 
 const FavoriteScreen = () => {
+  const changePage = (refresh: boolean) => {
+    setMovies(savedMovies?.favoriteMovies);
+  };
+  const [page, setPage] = useState(1);
+  const [movies, setMovies] = useState([]);
+
+  const savedMovies = useAuthStore().user;
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle}>Favorite</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatListComponent
+        movies={savedMovies?.favoriteMovies}
+        changePage={changePage}
+      />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'lightblue',
-    justifyContent: 'center',
+    backgroundColor: COLORS.primary,
     alignItems: 'center',
-  },
-  textStyle: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: 'black',
   },
 });
 

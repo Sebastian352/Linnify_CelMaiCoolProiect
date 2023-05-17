@@ -1,8 +1,10 @@
 export interface CardProps {
-  name?: string;
+  title: string;
+  storyline: string;
+  studio: string;
+  imdb: number;
   image: string;
-  date?: Date;
-  genre?: string;
-  director?: string;
+  tomato: number;
   id?: number;
+  genre?: string | undefined;
 }

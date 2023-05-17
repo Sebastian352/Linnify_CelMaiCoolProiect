@@ -24,15 +24,11 @@ import {searchHook} from '../hooks/use-search-hook';
 */
 
 const HomeScreen = () => {
-  const [isModalVisible, setModalVisible] = useState(false);
-  const setVisible = () => {
-    setModalVisible(!isModalVisible);
-  };
-
-  const [oldData, setOldData] = useState([]);
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+  const [pageModal, setPageModal] = useState(1);
 
   const theSearchQuery = (data: string) => {
     setSearchQuery(data);
@@ -46,21 +42,43 @@ const HomeScreen = () => {
     }
   };
 
-  const data = searchHook(movies, searchQuery, 'genre');
+  const changeModalPage = (refresh: boolean) => {
+    console.log('modal');
+    if (refresh) {
+      setPageModal(0);
+    } else {
+      setPageModal(page + 1);
+    }
+  };
 
   useEffect(() => {
-    getMovies(10, page).then((data: []) => {
-      setMovies([...data, ...movies]);
-    });
+    if (page === 1) {
+      getMovies(10, page, searchQuery).then((data: []) => {
+        setMovies([...data]);
+      });
+    } else {
+      getMovies(10, page, searchQuery).then((data: []) => {
+        setMovies([...movies, ...data]);
+      });
+    }
   }, [page]);
 
-  useEffect(() => {
-    setMovies(data);
-    if (searchQuery.length < 1) {
-      setPage(0);
-    }
-  }, [data]);
+  console.log('ASTA E PAGINA BAA =>>>>>' + page);
 
+  useEffect(() => {
+    getMovies(50, page, searchQuery).then((data: []) => {
+      setMovies([...data]);
+    });
+  }, [searchQuery]);
+
+  const [isModalVisible, setModalVisible] = useState(false);
+  const setVisible = async (filter: string) => {
+    await getMovies(10, pageModal, filter).then((data: []) => {
+      setFilteredMovies([...data]);
+    });
+
+    setModalVisible(!isModalVisible);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <SearchBarcomponent changeQuery={theSearchQuery} />
@@ -69,10 +87,13 @@ const HomeScreen = () => {
       <FlatListComponent movies={movies} changePage={changePage} />
       <Modal
         isVisible={isModalVisible}
-        onBackdropPress={setVisible}
+        onBackdropPress={() => setVisible('')}
         style={styles.modalStyle}>
         <SafeAreaView style={styles.internalModalStyle}>
-          <Text style={styles.textStyle}>I am the modal content!</Text>
+          <FlatListComponent
+            movies={filteredMovies}
+            changePage={changeModalPage}
+          />
         </SafeAreaView>
       </Modal>
     </SafeAreaView>
@@ -84,6 +105,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primary,
     alignItems: 'center',
+  },
+  modalStyle: {
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    justifyContent: 'flex-end',
+  },
+  internalModalStyle: {
+    width: '100%',
+    height: '80%',
+    backgroundColor: COLORS.primary,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    padding: 32,
   },
   separator: {width: '100%', height: 32},
   filterContainer: {
@@ -106,20 +141,6 @@ const styles = StyleSheet.create({
     height: 30,
     backgroundColor: 'white',
     borderRadius: 50,
-  },
-  modalStyle: {
-    width: '100%',
-    height: '100%',
-    margin: 0,
-    justifyContent: 'flex-end',
-  },
-  internalModalStyle: {
-    width: '100%',
-    height: '45%',
-    backgroundColor: 'white',
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    padding: 32,
   },
 });
 

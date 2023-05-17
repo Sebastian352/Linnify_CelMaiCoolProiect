@@ -18,7 +18,7 @@ const AccountScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <AvatarComponent user={currentUser} />
       <View style={styles.textContainer}>
         <View style={styles.underlineStyle}>
@@ -29,7 +29,7 @@ const AccountScreen = () => {
         </View>
       </View>
       <Pressable style={styles.logoutButton} onPress={logOut} />
-    </View>
+    </SafeAreaView>
   );
 };
 

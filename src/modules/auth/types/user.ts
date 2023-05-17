@@ -1,3 +1,4 @@
+import { CardProps } from "../../types/CardProps";
 
 export interface User{
     id:string,
@@ -5,4 +6,5 @@ export interface User{
     password:string,
     profilePicture?: string | undefined,
     favoriteGenres: string[],
+    favoriteMovies?: CardProps[],
 }

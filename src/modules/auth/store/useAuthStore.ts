@@ -9,6 +9,7 @@ const fixedUsers: User[] = [{
     password:'password',
     profilePicture:'pfp',
     favoriteGenres:['horror','action','comedy'],
+    favoriteMovies:[],
 },
 {
     id:'2',
@@ -16,6 +17,8 @@ const fixedUsers: User[] = [{
     password:'user',
     profilePicture:'pfp',
     favoriteGenres:['horror','action','comedy'],
+    favoriteMovies:[],
+    
 },
 {
     id:'3',
@@ -23,6 +26,7 @@ const fixedUsers: User[] = [{
     password:'A',
     profilePicture:'pfp',
     favoriteGenres:['horror','action','comedy'], 
+    favoriteMovies:[],
 }
 ]
 
