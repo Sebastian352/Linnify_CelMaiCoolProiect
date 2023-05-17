@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import useAuthStore from '../../auth/store/useAuthStore';
 import {AvatarComponent} from '../components/AvatarComponent';
+import {COLORS} from '../../../constants/themes';
 
 const AccountScreen = () => {
   const currentUser = useAuthStore().user;
@@ -19,7 +20,9 @@ const AccountScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <AvatarComponent user={currentUser} />
+      <View style={styles.imageContainer}>
+        <AvatarComponent user={currentUser} />
+      </View>
       <View style={styles.textContainer}>
         <View style={styles.underlineStyle}>
           <Text style={styles.textStyle}>{currentUser?.email}</Text>
@@ -29,6 +32,7 @@ const AccountScreen = () => {
         </View>
       </View>
       <Pressable style={styles.logoutButton} onPress={logOut} />
+      <View style={styles.dunga} />
     </SafeAreaView>
   );
 };
@@ -36,9 +40,18 @@ const AccountScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'lightgreen',
+    backgroundColor: COLORS.primary,
     justifyContent: 'space-around',
     alignItems: 'center',
+  },
+  dunga: {
+    width: 300,
+    height: 100,
+    top: 80,
+    backgroundColor: COLORS.secondary,
+    transform: [{rotateZ: '-25deg'}],
+    position: 'absolute',
+    zIndex: -1,
   },
   textContainer: {
     justifyContent: 'space-around',
@@ -62,6 +75,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 50,
   },
+  imageContainer: {marginTop: 64},
 });
 
 export default AccountScreen;

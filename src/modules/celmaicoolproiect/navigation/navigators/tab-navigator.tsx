@@ -41,6 +41,9 @@ export const BottomTabs = () => {
           tabBarIcon: accountIcon,
           headerRight: editButton,
           headerShown: true,
+          headerTitle: '',
+          headerStyle: styles.headerStyle,
+          headerShadowVisible: false,
         }}
       />
     </Tab.Navigator>
@@ -61,7 +64,7 @@ const editButton = () => {
     <Pressable
       style={styles.editButton}
       onPress={() => navigation.navigate(AppRoutes.Edit)}>
-      <Text style={styles.editTextStyle}>Edit</Text>
+      <Text style={styles.editTextStyle}>...</Text>
     </Pressable>
   );
 };
@@ -97,6 +100,9 @@ const accountIcon = ({focused}) => {
 };
 
 const styles = StyleSheet.create({
+  headerStyle: {
+    backgroundColor: COLORS.primary,
+  },
   bottomTab: {
     bottom: 4,
     left: 4,
@@ -108,10 +114,11 @@ const styles = StyleSheet.create({
   },
   editButton: {
     paddingRight: 16,
+    marginTop: -32,
   },
   editTextStyle: {
     fontWeight: 'bold',
-    color: 'black',
-    fontSize: 20,
+    color: COLORS.lightWhite,
+    fontSize: 48,
   },
 });

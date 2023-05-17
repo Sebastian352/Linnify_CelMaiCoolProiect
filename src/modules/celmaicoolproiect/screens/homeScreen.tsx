@@ -69,6 +69,7 @@ const HomeScreen = () => {
     getMovies(50, page, searchQuery).then((data: []) => {
       setMovies([...data]);
     });
+    setPage(1);
   }, [searchQuery]);
 
   const [isModalVisible, setModalVisible] = useState(false);

@@ -13,19 +13,24 @@ import useAuthStore from '../../auth/store/useAuthStore';
 
 const FavoriteScreen = () => {
   const changePage = (refresh: boolean) => {
-    setMovies(savedMovies?.favoriteMovies);
+    if (refresh) {
+      setPage(1);
+    } else {
+      setPage(page + 1);
+    }
   };
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
 
   const savedMovies = useAuthStore().user;
 
+  useEffect(() => {
+    setMovies(savedMovies?.favoriteMovies);
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
-      <FlatListComponent
-        movies={savedMovies?.favoriteMovies}
-        changePage={changePage}
-      />
+      <FlatListComponent movies={movies} changePage={changePage} />
     </SafeAreaView>
   );
 };
@@ -35,6 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primary,
     alignItems: 'center',
+    padding: 16,
   },
 });
 
