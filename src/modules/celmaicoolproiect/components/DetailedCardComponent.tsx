@@ -8,6 +8,7 @@ import {
   ListRenderItemInfo,
 } from 'react-native';
 import {COLORS} from '../../../constants/themes';
+import Animated,{BounceIn, BounceInUp} from 'react-native-reanimated';
 import {
   BookMarkIcon,
   IMDBIcon,
@@ -66,11 +67,22 @@ const DetailedCardComponent = (props: Props) => {
             </View>
           </View>
           <Pressable style={styles.bookmarkButtonStyle} onPress={faveFunc}>
-            <BookMarkIcon
-              width={32}
-              height={32}
-              fill={props.favorite ? COLORS.lightWhite : COLORS.primary}
-            />
+            {
+            props.favorite ?
+            <Animated.View key={1} entering={BounceIn}> 
+              <BookMarkIcon 
+                  width={32}
+                  height={32}
+                  fill={COLORS.lightWhite}
+            /> 
+            </Animated.View> : 
+            <Animated.View key={2} entering={BounceIn}>
+               <BookMarkIcon 
+                  width={32}
+                  height={32}
+                  fill={COLORS.primary}
+          />
+            </Animated.View>}
           </Pressable>
         </View>
         <View style={styles.containerDirective}>

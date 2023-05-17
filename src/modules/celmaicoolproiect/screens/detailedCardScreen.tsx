@@ -14,7 +14,12 @@ const DetailedCardScreen = ({route}) => {
     let currentMovies: any[] | undefined = currentUser?.favoriteMovies;
     checkFavorite();
 
+    if(currentMovies === undefined){
+      currentMovies = [];
+    }
+    console.log(favorite);
     if (favorite) {
+      console.log("am intrat aici");
       let index = currentUser?.favoriteMovies?.findIndex(
         item => item.id === route.params.props.prop.id,
       );
@@ -29,11 +34,8 @@ const DetailedCardScreen = ({route}) => {
       }
       setFavorite(false);
     } else {
-      let index = currentUser?.favoriteMovies?.findIndex(
-        item => item.id === route.params.props.prop.id,
-      );
-      if (index === -1) {
         currentMovies?.push(movie);
+        console.log('am ajuns aici'+currentMovies);
         if (!currentUser) {
           const newUser = {
             ...currentUser,
@@ -41,7 +43,6 @@ const DetailedCardScreen = ({route}) => {
           };
           addFavorite(newUser);
         }
-      }
       setFavorite(true);
     }
   };
@@ -53,16 +54,14 @@ const DetailedCardScreen = ({route}) => {
     let index = currentUser?.favoriteMovies?.findIndex(
       item => item.id === route.params.props.prop.id,
     );
+    console.log(index);
     if (index != -1) {
       setFavorite(true);
     } else {
       setFavorite(false);
     }
   };
-  const printUser = () => {
-    console.log(currentUser?.favoriteMovies);
-  };
-  printUser();
+
 
   return (
     <SafeAreaView style={styles.container}>

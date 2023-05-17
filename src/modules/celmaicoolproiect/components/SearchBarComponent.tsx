@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   textInput: {
     width: '90%',
     height: 58,
-    color: COLORS.white,
+    color: COLORS.lightWhite,
     borderRadius: 16,
     backgroundColor: COLORS.primary,
     paddingLeft: 12,

@@ -8,6 +8,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import RNBootSplash from "react-native-bootsplash";
+
 import {
   SafeAreaView,
   ScrollView,
@@ -70,7 +72,7 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <NavigationContainer>
+      <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true, duration: 500 })}>
         <AppNavigator/>
       </NavigationContainer>
     </SafeAreaView>

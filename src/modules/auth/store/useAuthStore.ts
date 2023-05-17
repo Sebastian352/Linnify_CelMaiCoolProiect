@@ -53,11 +53,12 @@ const useAuthStore = create(
     const index = get().users?.findIndex((item)=>item.id===newUser.id);
     const newUsers = get().users;
     newUsers[index] = newUser;
+    console.log(newUser)
     set((state:AuthState)=>({users:newUsers,user:newUser}))
   },
 })
 ,{
-  name:'auth-storage',
+  name:'auth-storage_1',
   storage:createJSONStorage(()=> zustandStorage)
 })
 )
